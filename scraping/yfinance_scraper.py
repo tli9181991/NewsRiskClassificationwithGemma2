@@ -80,8 +80,9 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
             # driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
             last_height = new_height
             n_srcoll += 1
-                
-                
+
+    print(f"\nTotal Srcoll: {n_srcoll}")
+
     full_page = bs(driver.page_source, 'html')
     
     sys.stdout.flush()
