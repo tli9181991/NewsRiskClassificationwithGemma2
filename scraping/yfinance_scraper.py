@@ -136,3 +136,12 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
     driver.close()
     
     return df_news
+
+if __name__ == '__main__':
+    # ticker = "APPL"
+    for ticker in ['GOOGL', 'META', 'MSFT', 'AMZN', 'TSLA']:
+        print(f"Extracting News for {ticker}")
+        end_datetime = datetime.now() - timedelta(days=30)
+        df_news = fetch_yfinance_news_data(ticker=ticker, end_datetime=end_datetime, 
+                                       max_sroll=100, slp_time=10)
+        df_news.to_csv(f"./data/yf_news_{ticker}.csv", index=False)
