@@ -20,7 +20,7 @@ warnings.filterwarnings("ignore")
 def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_time = 10):
     link = f"https://finance.yahoo.com/quote/{ticker}/news/"
     driver = webdriver.Chrome()
-    driver.minimize_window()
+    # driver.minimize_window()
 
     driver.get(link)
     sys.stdout.flush()
@@ -41,9 +41,14 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
     key_hd = driver.find_element(By.XPATH, '//*[@id="nimbus-app"]/section/section/section/article/section[2]/section/div/div/div/div/ul/li/section/div/a/h3')
     key_hd = key_hd.get_attribute('class').split(' ')[-1]
 
+    print_str = ' '
     while (END_FATCH == False and n_srcoll < max_sroll):
         driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
         time.sleep(slp_time)
+        
+        sys.stdout.flush()
+        print_str = '\r' + ''.join([' ' for i in range(len(print_str))])
+        sys.stdout.write(print_str)
         
         sys.stdout.flush()
         print_str = f"\rScrolling {n_srcoll}..."
@@ -98,13 +103,27 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
     news_links = [li_soup.find('a').get('href') for li_soup in full_page.find_all('li', {'class': 'stream-item story-item yf-1drgw5l'})]
     
     news_data = []
+    print()
+    print_str = ' '
     for headline, description, news_link in zip(headlines, descriptions, news_links):
             
         content = requests.get(news_link, headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.3"})
         content_bs = bs(content.content, 'html')
-    
+
+        sys.stdout.flush()
+        print_str = '\r' + ''.join([' ' for i in range(len(print_str))])
+        sys.stdout.write(print_str)
+
+        sys.stdout.flush()
+        print_str = f'\rprocessing: {news_link}'
+        sys.stdout.write(print_str)
+        
+        if content_bs.find('time', {'class': 'byline-attr-meta-time'}) == None:
+            continue
+
         date_time = content_bs.find('time', {'class': 'byline-attr-meta-time'}).text
-        weekday, mon_date, year, news_time = date_time.split(',')
+        if len(date_time.split(',')) != 4:
+           continue
         month = mon_date.split(' ')[1]
         day = mon_date.split(' ')[2]
         year = year.replace(' ', '')
@@ -112,7 +131,10 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
         news_datetime = pd.to_datetime(news_date + news_time)
 
         article_soups = content_bs.find('div', {'class': 'atoms-wrapper'})
-        article = '.'.join([p.text for p in article_soups.find_all('p')])       
+        if article_soups is not None:
+            article = '.'.join([p.text for p in article_soups.find_all('p')])       
+        else:
+            article = ''
 
         if end_datetime != None:
             delta_s = (news_datetime - end_datetime).total_seconds()
