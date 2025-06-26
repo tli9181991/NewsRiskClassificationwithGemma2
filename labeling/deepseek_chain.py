@@ -28,8 +28,10 @@ def deepseek_labling(headline, description):
     )
 
     result = labeling_chain.invoke({'headline': headline, 'description':description})
+    analysis = result.split('/think>\n')[-1]
+    analysis = analysis.replace('\n', ' ')
 
-    return result.split('/think>\n')[-1]
+    return analysis
 
 if __name__ == '__main__':
     df_news = pd.read_csv("./data/yf_news_NVDA.csv")
