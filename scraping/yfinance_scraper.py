@@ -105,25 +105,29 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
     news_data = []
     print()
     print_str = ' '
-    for headline, description, news_link in zip(headlines, descriptions, news_links):
+    for i_news, (headline, description, news_link) in enumerate(zip(headlines, descriptions, news_links)):
             
         content = requests.get(news_link, headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.3"})
         content_bs = bs(content.content, 'html')
 
         sys.stdout.flush()
-        print_str = '\r' + ''.join([' ' for i in range(len(print_str))])
+        print_str = '\r' + ''.join([' ' for i in range(len(print_str) + 5)])
         sys.stdout.write(print_str)
 
         sys.stdout.flush()
-        print_str = f'\rprocessing: {news_link}'
+        print_str = f'\r{i_news} - processing: {news_link}'
         sys.stdout.write(print_str)
         
         if content_bs.find('time', {'class': 'byline-attr-meta-time'}) == None:
+            print(' time is not found')
             continue
 
         date_time = content_bs.find('time', {'class': 'byline-attr-meta-time'}).text
         if len(date_time.split(',')) != 4:
-           continue
+            print(f" invalid date_time length: {date_time}")
+            continue
+
+        _, mon_date, year, news_time = date_time.split(',')
         month = mon_date.split(' ')[1]
         day = mon_date.split(' ')[2]
         year = year.replace(' ', '')
@@ -153,7 +157,7 @@ def fetch_yfinance_news_data(ticker, end_datetime = None, max_sroll = 20, slp_ti
     if len(df_news) > 0:
         print(f"\nNews collected from {news_data[0]['Datetime']} to {news_data[-1]['Datetime']}")    
     else:
-        print("No News updated")
+        print("\nNo News updated")
     
     driver.close()
     
