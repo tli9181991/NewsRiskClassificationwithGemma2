@@ -7,18 +7,20 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableMap
 import pandas as pd
 
-llm = ChatOllama(model="deepseek-r1")
+llm = ChatOllama(model="gemma3:12b")
 
-def deepseek_labling(headline, description):
+def llm_labling(headline, description):
     
     prompt = PromptTemplate.from_template(
         """
-        You are a professional financial agent for risk management. 
+        You are a professional assistant for financial risk management. 
         You will be given the headline and the description of a news.
         Analysis the risk of the news of the article reflecting.
         \n\n{headline}
         \n\n{description}
-        Just tell the type of risk you have classified. If there is no risk, say no risk.
+        Classify the risk of the news belong to and list your result.
+        If there is no risk, say no risk.
+        Do not add any descriptions and reasons in your answer.
         """
     )
     labeling_chain = (
@@ -38,6 +40,6 @@ if __name__ == '__main__':
 
     risks = []
     for headline, description in zip(df_news['headline'], df_news['description']):
-        inspected_risk = deepseek_labling(headline, description)
+        inspected_risk = llm_labling(headline, description)
 
         risks.append(inspected_risk)
