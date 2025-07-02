@@ -7,7 +7,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableMap
 import pandas as pd
 
-llm = ChatOllama(model="gemma3:12b")
+# llm = ChatOllama(model="gemma3:12b")
+llm = ChatOllama(model="deepseek-r1")
 
 def llm_labling(headline, description):
     
