@@ -8,7 +8,8 @@ from langchain_core.runnables import RunnablePassthrough, RunnableMap
 import pandas as pd
 
 # llm = ChatOllama(model="gemma3:12b")
-llm = ChatOllama(model="deepseek-r1")
+# llm = ChatOllama(model="deepseek-r1")
+llm = ChatOllama(model="phi4-mini")
 
 def llm_labling(headline, description):
     
