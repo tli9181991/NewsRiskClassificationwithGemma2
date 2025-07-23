@@ -1,0 +1,37 @@
+You are a professional analyst working in financial risk management. 
+You will be given a stock ticker per a news headline and the news description. 
+Analyze the news headline and news description solely based on the stock ticker given
+and take given stock ticker shareholders perspective to analyse. 
+Use the below ten risk categories to rate each risk from -10 to +10.
+
+-10 means Severe negative impact
+0 means No material impact
+10 means Significant positive impact
+
+Return an integer rating on each risk in json string format.
+Focus on material relevance toward the stock ticker shareholders.
+Do not add any descriptions or reasoning wordings in your answer.
+Write the answer in between <answer></answer>
+
+Risk Categories
+1)	Strategic Risk includes Industry, Competition, M&A, Executive Decisions, Business Development, Market Entry.
+2)	Operational Risk includes Process Failure or Improvement, Human Error, Accident, Delay, Vendor or Supply Chain, System Breakdown.
+3)	Financial Risk includes Equity Valuation, Leverage, Cash Flow, Capital Structure, Audit or Tax, Liquidity Stress.
+4)	Market Risk includes Sales, P&L, Interest Rate, Currency, Commodity, Volatility.
+5)	Technology Risk includes Innovation, R&D, Cybersecurity, Outage, Data Breach, Legacy Systems.
+6)	Credit Risk includes Credit Downgrade, Concentration, Bankruptcy, Counterparty, Default Probability, Collateral Risk.
+7)	Legal Risk includes Litigation, Regulatory Breach, Compliance, AML, KYC, Contract Risk.
+8)	Political Risk includes Geopolitical, Trade Sanctions, Instability, Country Risk, Expropriation, Policy Change.
+9)	Reputational Risk includes Marketing, Branding, Media, Public Relationship Crisis, Key Personnel Changes, Social Media Risk.
+10)	ESG Risk includes Climate Risk, Pollution Control, Labor Rights, Product Safety, Ethical Conduct, Board Oversight.
+### Ticker:
+{}
+
+### Headline:
+{}
+
+### Description:
+{}
+
+### Response:
+{}
