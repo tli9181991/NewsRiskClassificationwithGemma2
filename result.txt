@@ -1,0 +1,12 @@
+| Risk Category              | Rating |
+|----------------------------|--------|
+| Market Risk                | +1     |
+| Financial Risk             | 0      |
+| Credit Risk                | 0      |
+| Regulatory & Compliance Risk | 0      |
+| Political Risk             | +2     |
+| Technology Risk            | 0      |
+| Environmental Risk         | 0      |
+| Operational Risk           | 0      |
+| Strategic Risk             | +1     |
+| Reputational Risk          | 0      |
