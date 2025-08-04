@@ -4268,9 +4268,16 @@ Political Risk: 0
 Reputational Risk: 0
 ESG Risk: 0
 "
-F,"2 Ultra-High-Yield Dividend Stocks to Skip, and 1 You Should Buy for Income",Enbridge backs its high-yielding payout with very stable cash flow.  Ford's free cash flow was already on track to fall even before the impact of tariffs.  UPS's free cash flow has also felt the impact of tariffs.,"ENB: {'Strategic_Risk': 3, 'Operational_Risk': 0, 'Financial_Risk': 6, 'Market_Risk': 2, 'Technology_Risk': 0, 'Credit_Risk': 1, 'Legal_Risk': 0, 'Political_Risk': -2, 'Reputational_Risk': 2, 'ESG_Risk': 0}
-F: {'Strategic_Risk': -3, 'Operational_Risk': -1, 'Financial_Risk': -7, 'Market_Risk': -4, 'Technology_Risk': 0, 'Credit_Risk': -2, 'Legal_Risk': 0, 'Political_Risk': -8, 'Reputational_Risk': -3, 'ESG_Risk': 0}
-UPS: {'Strategic_Risk': -2, 'Operational_Risk': -1, 'Financial_Risk': -5, 'Market_Risk': -3, 'Technology_Risk': 0, 'Credit_Risk': -1, 'Legal_Risk': 0, 'Political_Risk': -7, 'Reputational_Risk': -1, 'ESG_Risk': 0}
+F,"2 Ultra-High-Yield Dividend Stocks to Skip, and 1 You Should Buy for Income",Enbridge backs its high-yielding payout with very stable cash flow.  Ford's free cash flow was already on track to fall even before the impact of tariffs.  UPS's free cash flow has also felt the impact of tariffs.,"Strategic Risk: 3
+Operational Risk: 0
+Financial Risk: 6
+Market Risk: 2
+Technology Risk: 0
+Credit Risk: 1
+Legal Risk: 0
+Political Risk: -2
+Reputational Risk: 2
+ESG Risk: 0
 "
 F,Trump tariffs: Which companies will raise prices vs. eat the cost,"Walmart (WMT) says shoppers should brace for higher prices as tariffs kick in later this month. Catalysts host Madison Mills breaks down how President Trump's tariff threats are hitting retailers, automakers like Ford (F), and even Microsoft's (MSFT) Xbox game prices. To watch more expert insights and analysis on the latest market action, check out more Market DominationÂ here.","Strategic Risk: -5
 Operational Risk: -4

@@ -1924,8 +1924,14 @@ Political Risk: 0
 Reputational Risk: 5
 ESG Risk: 0
 "
-AMZN,Prologis,"Uncertain times are good for Prologis, the world's largest industrial property company, whose 1.3 billion square feet of warehouse space in 20 countries serve 6,700...","AMZN: {'Strategic Risk': 0, 'Operational Risk': 0, 'Financial Risk': 0, 'Market Risk': 0, 'Technology Risk': 0, 'Credit Risk': 0, 'Legal Risk': 0, 'Political Risk': 0, 'Reputational Risk': 0, 'ESG Risk': 0}
-Prologis: {'Strategic Risk': 8, 'Operational Risk': -2, 'Financial Risk': 6, 'Market Risk': 9, 'Technology Risk': -1, 'Credit Risk': 7, 'Legal Risk': -3, 'Political Risk': -2, 'Reputational Risk': -1, 'ESG Risk': 4}
+AMZN,Prologis,"Uncertain times are good for Prologis, the world's largest industrial property company, whose 1.3 billion square feet of warehouse space in 20 countries serve 6,700...","Strategic Risk: 0
+Operational Risk: 0
+Financial Risk: 0
+Market Risk: 0
+Technology Risk: 0
+Credit Risk: 1
+Legal Risk: 0
+Political Risk: 0
 "
 AMZN,"Move Over, BigDog. Humanoid Robots Are Finally Here. How to Invest.","What investors and consumers need to know about a fast-growing industry that will top trillions of dollars in sales. Nvidia, Tesla, and Alphabet should benefit.","Strategic Risk: -3
 Operational Risk: 0
